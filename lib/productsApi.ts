@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { HYDRATE } from 'next-redux-wrapper';
 import IProduct from '../interfaces/Product/IProduct';
+
 export const productsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_SERVER_HOST}api/v1/products`,
@@ -19,12 +20,15 @@ export const productsApi = createApi({
       providesTags: (result, error, arg) =>
         result
           ? [
-              ...result.data.map(({ _id }) => ({ type: 'Post' as const, _id })),
+              ...result.data.map(({ _id }) => ({
+                type: 'Post' as const,
+                _id,
+              })),
               'Post',
             ]
           : ['Post'],
     }),
-    getProductById: builder.query<IProduct, string>({
+    getProductById: builder.query<{ data: IProduct }, string>({
       query: (id) => `/${id}`,
       providesTags: ['Post'],
     }),

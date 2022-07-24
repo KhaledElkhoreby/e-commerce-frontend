@@ -4,10 +4,9 @@ import { MouseEventHandler, useEffect, useState } from 'react';
 export default function ImagesSlider({ images = [] }: { images: string[] }) {
   const [activeImage, setActiveImage] = useState(images[0]);
   const [zoomStyle, setZoomStyle] = useState({
-    backgroundImage: ``,
+    backgroundImage: 'none',
     backgroundPosition: '0% 0%',
   });
-  console.log({ activeImage });
 
   useEffect(() => {
     setActiveImage(images[0]);
@@ -17,21 +16,23 @@ export default function ImagesSlider({ images = [] }: { images: string[] }) {
     setActiveImage(image);
   };
 
+  const handleMouseEnter: MouseEventHandler = () => {
+    const url = process.env.NEXT_PUBLIC_SERVER_HOST + activeImage;
+    setZoomStyle((prev) => ({ ...prev, backgroundImage: `url('${url}')` }));
+  };
+
   const handleMouseMove: MouseEventHandler = (event) => {
     const { left, top, width, height } = (
       event.target as HTMLElement
     ).getBoundingClientRect();
     const x = ((event.pageX - left) / width) * 100;
     const y = ((event.pageY - top) / height) * 100;
-    setZoomStyle({
-      backgroundImage: `url(${activeImage})`,
-      backgroundPosition: `${x}% ${y}%`,
-    });
+    setZoomStyle((prev) => ({ ...prev, backgroundPosition: `${x}% ${y}%` }));
   };
 
   const handleMouseLeave: MouseEventHandler = () => {
     setZoomStyle({
-      backgroundImage: ``,
+      backgroundImage: 'none',
       backgroundPosition: '0% 0%',
     });
   };
@@ -39,7 +40,7 @@ export default function ImagesSlider({ images = [] }: { images: string[] }) {
   return (
     <>
       <div className="w-full h-full">
-        <div className="flex flex-col-reverse w-full h-full items-center gap-y-3 lg:flex-row md:items-start md:h-[calc(100%-4rem)] md:gap-x-2">
+        <div className="flex flex-col-reverse w-full items-center gap-y-2 lg:flex-row md:items-start md:h-[calc(100%-4rem)] md:gap-x-2">
           {/* thumbs*/}
           <div
             className="flex flex-nowrap justify-center gap-1 w-full h-[100px] shadow shadow-black carousel
@@ -54,7 +55,7 @@ export default function ImagesSlider({ images = [] }: { images: string[] }) {
               >
                 <Image
                   layout="fill"
-                  src={image}
+                  src={`${process.env.NEXT_PUBLIC_SERVER_HOST}${image}`}
                   alt=""
                   className={`object-contain text-center transition-all ease-linear border border-transparent ${
                     activeImage === image
@@ -67,15 +68,17 @@ export default function ImagesSlider({ images = [] }: { images: string[] }) {
           </div>
           {/* preview */}
           <figure
+            onMouseEnter={handleMouseEnter}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="bg-no-repeat group lg:w-[calc(100%-4.25rem)] items-stretch self-stretch w-full h-full relative"
+            className="bg-no-repeat group lg:w-[calc(100%-4.25rem)] items-stretch self-stretch w-full h-[70vh] md:h-full relative"
             style={zoomStyle}
           >
             <Image
               layout="fill"
               objectFit="contain"
-              src={activeImage}
+              src={`${process.env.NEXT_PUBLIC_SERVER_HOST}${activeImage}`}
+              priority
               alt=""
               className="block pointer-events-none group-hover:opacity-0 object-center md:object-left-top"
             />

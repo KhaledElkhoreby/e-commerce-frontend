@@ -23,12 +23,12 @@
           }
         ],
         "images": [
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_1_1_1_628x.progressive.jpg?v=1542543939",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_2_1_1_628x.progressive.jpg?v=1542543940",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_2_2_1_628x.progressive.jpg?v=1542543942",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_2_3_1_628x.progressive.jpg?v=1542543943",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_2_4_1_628x.progressive.jpg?v=1542543944",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899250_1_1_1_628x.progressive.jpg?v=1542543945"
+          "images/products/2879899039_1_1_1_628x.progressive.jpg",
+          "images/products/2879899039_2_1_1_628x.progressive.jpg",
+          "images/products/2879899039_2_2_1_628x.progressive.jpg",
+          "images/products/2879899039_2_3_1_628x.progressive.jpg",
+          "images/products/2879899039_2_4_1_628x.progressive.jpg",
+          "images/products/2879899250_1_1_1_628x.progressive.jpg"
         ]
       },
       {
@@ -61,11 +61,10 @@
           }
         ],
         "images": [
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2046033800_1_1_1_628x.progressive.jpg?v=1525093946",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2046033800_2_1_1_628x.progressive.jpg?v=1525093947",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2046033800_2_2_1_628x.progressive.jpg?v=1525093948",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2046033800_2_3_1_628x.progressive.jpg?v=1525093949",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2046033800_2_4_1_628x.progressive.jpg?v=1525093950"
+          "images/products/0278211506_2_2_1_490x.progressive.jpg",
+          "images/products/0278211506_1_1_1_628x.progressive.jpg",
+          "images/products/0278211506_2_1_1_490x.progressive.jpg",
+          "images/products/0278211506_2_3_1_490x.progressive.jpg"
         ]
       },
       {
@@ -83,10 +82,11 @@
           }
         ],
         "images": [
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/0278211506_1_1_1_628x.progressive.jpg?v=1525093887",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/0278211506_2_1_1_490x.progressive.jpg?v=1525093887",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/0278211506_2_2_1_490x.progressive.jpg?v=1525093888",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/0278211506_2_3_1_490x.progressive.jpg?v=1525093889"
+          "images/products/2046033800_2_3_1_628x.progressive (2).jpg",
+          "images/products/2046033800_2_3_1_628x.progressive (3).jpg",
+          "images/products/2046033800_2_3_1_628x.progressive (4).jpg",
+          "images/products/2046033800_2_3_1_628x.progressive (5).jpg",
+          "images/products/2046033800_2_3_1_628x.progressive.jpg"
         ]
       },
       {
@@ -99,12 +99,12 @@
           }
         ],
         "images": [
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_1_1_1_628x.progressive.jpg?v=1542543939",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_2_1_1_628x.progressive.jpg?v=1542543940",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_2_2_1_628x.progressive.jpg?v=1542543942",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_2_3_1_628x.progressive.jpg?v=1542543943",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_2_4_1_628x.progressive.jpg?v=1542543944",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899250_1_1_1_628x.progressive.jpg?v=1542543945"
+          "images/products/2879899039_1_1_1_628x.progressive.jpg",
+          "images/products/2879899039_2_1_1_628x.progressive.jpg",
+          "images/products/2879899039_2_2_1_628x.progressive.jpg",
+          "images/products/2879899039_2_3_1_628x.progressive.jpg",
+          "images/products/2879899039_2_4_1_628x.progressive.jpg",
+          "images/products/2879899250_1_1_1_628x.progressive.jpg"
         ]
       },
       {
@@ -137,11 +137,10 @@
           }
         ],
         "images": [
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2046033800_1_1_1_628x.progressive.jpg?v=1525093946",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2046033800_2_1_1_628x.progressive.jpg?v=1525093947",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2046033800_2_2_1_628x.progressive.jpg?v=1525093948",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2046033800_2_3_1_628x.progressive.jpg?v=1525093949",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2046033800_2_4_1_628x.progressive.jpg?v=1525093950"
+          "images/products/0278211506_2_2_1_490x.progressive.jpg",
+          "images/products/0278211506_1_1_1_628x.progressive.jpg",
+          "images/products/0278211506_2_1_1_490x.progressive.jpg",
+          "images/products/0278211506_2_3_1_490x.progressive.jpg"
         ]
       },
       {
@@ -169,10 +168,11 @@
           }
         ],
         "images": [
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/0278211506_1_1_1_628x.progressive.jpg?v=1525093887",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/0278211506_2_1_1_490x.progressive.jpg?v=1525093887",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/0278211506_2_2_1_490x.progressive.jpg?v=1525093888",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/0278211506_2_3_1_490x.progressive.jpg?v=1525093889"
+          "images/products/2046033800_2_3_1_628x.progressive (2).jpg",
+          "images/products/2046033800_2_3_1_628x.progressive (3).jpg",
+          "images/products/2046033800_2_3_1_628x.progressive (4).jpg",
+          "images/products/2046033800_2_3_1_628x.progressive (5).jpg",
+          "images/products/2046033800_2_3_1_628x.progressive.jpg"
         ]
       },
       {
@@ -190,12 +190,12 @@
           }
         ],
         "images": [
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_1_1_1_628x.progressive.jpg?v=1542543939",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_2_1_1_628x.progressive.jpg?v=1542543940",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_2_2_1_628x.progressive.jpg?v=1542543942",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_2_3_1_628x.progressive.jpg?v=1542543943",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899039_2_4_1_628x.progressive.jpg?v=1542543944",
-          "https://cdn.shopify.com/s/files/1/0026/2910/7764/products/2879899250_1_1_1_628x.progressive.jpg?v=1542543945"
+          "images/products/2879899039_1_1_1_628x.progressive.jpg",
+          "images/products/2879899039_2_1_1_628x.progressive.jpg",
+          "images/products/2879899039_2_2_1_628x.progressive.jpg",
+          "images/products/2879899039_2_3_1_628x.progressive.jpg",
+          "images/products/2879899039_2_4_1_628x.progressive.jpg",
+          "images/products/2879899250_1_1_1_628x.progressive.jpg"
         ]
       }
     ],
