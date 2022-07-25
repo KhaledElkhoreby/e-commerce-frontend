@@ -2,7 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: { domains: ['localhost'] },
+  images: {
+    domains: ['localhost', 'still-forest-48921.herokuapp.com'],
+  },
 };
 
 module.exports = nextConfig;

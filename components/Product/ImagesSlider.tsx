@@ -43,13 +43,13 @@ export default function ImagesSlider({ images = [] }: { images: string[] }) {
         <div className="flex flex-col-reverse w-full items-center gap-y-2 lg:flex-row md:items-start md:h-[calc(100%-4rem)] md:gap-x-2">
           {/* thumbs*/}
           <div
-            className="flex flex-nowrap justify-center gap-1 w-full h-[100px] shadow shadow-black carousel
-                      lg:flex-col lg:w-[4.25rem] lg:h-[370px] lg:carousel-vertical lg:justify-start"
+            className="flex flex-nowrap justify-center gap-2 w-full h-[100px]  carousel
+                      lg:flex-col lg:w-[4.25rem] lg:h-full lg:carousel-vertical md:justify-start"
           >
             {images.map((image, index) => (
               /* img_wrap */
               <div
-                className="flex-1 shrink-0 grow-0 basis-[4.5rem] cursor-pointer carousel-item relative"
+                className="flex-1 shrink-0 grow-0 basis-[4.5rem] cursor-pointer carousel-item relative "
                 key={index}
                 onMouseOver={() => hoverHandler(image)}
               >
@@ -58,9 +58,7 @@ export default function ImagesSlider({ images = [] }: { images: string[] }) {
                   src={`${process.env.NEXT_PUBLIC_SERVER_HOST}${image}`}
                   alt=""
                   className={`object-contain text-center transition-all ease-linear border border-transparent ${
-                    activeImage === image
-                      ? 'outline outline-black shadow shadow-black brightness-100'
-                      : 'shadow-sm brightness-50'
+                    activeImage === image ? ' activeImage' : ' normalImage'
                   }`}
                 />
               </div>
