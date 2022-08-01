@@ -5,7 +5,7 @@ import { FaStarHalfAlt, FaStar, FaRegStar } from 'react-icons/fa';
 import ReactStars from 'react-rating-stars-component';
 
 interface IProps {
-  size: number;
+  size?: number;
   onChange?: Function;
   value?: number;
   readOnly?: boolean;

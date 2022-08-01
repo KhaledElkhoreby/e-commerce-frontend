@@ -3,7 +3,7 @@ export interface IReview {
   product: string;
   review: string;
   rating: number;
-  user: string;
+  user: { _id: string; name: string; photo: string };
 }
 
 export interface IAllReviewsResponse {

@@ -100,8 +100,10 @@ export default function ProductDetails() {
           </div>
         </div>
       </div>
-      <div>
-        <h1 className="text-xl font-semibold capitalize">customer reviews</h1>
+      <div className="my-6">
+        <h1 className="text-xl font-semibold capitalize text-center md:text-start">
+          customer reviews
+        </h1>
         <Reviews productId={id as string} />
       </div>
     </div>
