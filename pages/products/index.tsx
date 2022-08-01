@@ -3,7 +3,7 @@ import {
   getProductList,
   getRunningOperationPromises,
   useGetProductListQuery,
-} from '../../lib/productsApi';
+} from '../../lib/services/productsApi';
 import { wrapper } from '../../lib/store';
 
 export default function Products() {

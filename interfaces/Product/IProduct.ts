@@ -10,18 +10,29 @@ export interface IVariant {
   images: string[];
 }
 
-export default interface IProduct {
+export interface IProduct {
+  _id: string;
   category: string;
   brand: string;
   brand_thumbnail: string;
   title: string;
+  slug: string;
   description: string;
   ratingsAverage: number;
   ratingsQuantity: number;
   variants: IVariant[];
-  _id: string;
-  createdAt: string;
   updatedAt: string;
-  slug: string;
+  createdAt: string;
   __v: number;
+}
+
+export interface IProductResponse {
+  status: string;
+  data: IProduct;
+}
+
+export interface IAllProductsResponse {
+  status: string;
+  results: number;
+  data: IProduct[];
 }
