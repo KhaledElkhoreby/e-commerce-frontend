@@ -9,3 +9,7 @@
 .normalImage {
   filter: drop-shadow(0px 3px 1px #000000) brightness(0.5);
 }
+
+html {
+  @apply scroll-smooth;
+}

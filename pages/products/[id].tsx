@@ -48,11 +48,11 @@ export default function ProductDetails() {
       <div className="capitalize text-center py-4 text-xs md:text-sm xl:text-start">
         home / {product?.category} / {product?.brand}
       </div>
-      <div className="flex flex-wrap justify-between gap-6">
+      <div className="flex flex-wrap justify-between gap-6 shadow-xl">
         <div className="flex-grow min-h-[600px] w-full lg:w-[50%] md:basis-[calc(50%-1.5rem)] ">
           {variant && <ImagesSlider images={variant?.images!} />}
         </div>
-        <div className=" flex-grow w-full md:basis-[calc(50%-1.5rem)] flex flex-col text-center lg:text-start gap-y-4">
+        <div className=" flex-grow w-full md:basis-[calc(50%-1.5rem)] flex flex-col text-center lg:text-start gap-y-4 p-4">
           <div className="flex gap-x-2 justify-center capitalize text-sm lg:justify-start">
             <span className="badge-error text-white px-2">{'hot'}</span>
             <span className="badge-info text-white px-2">{'in stock'}</span>
@@ -60,21 +60,26 @@ export default function ProductDetails() {
           <h1 className="text-xl lg:text-2xl">{product?.title}</h1>
           <div className="border-black flex justify-center lg:justify-start gap-x-2">
             <RateStars size={25} readOnly />
-            <span className="underline uppercase font-thin">
+            <a className="uppercase link" href="#reviews">
               {`${product?.ratingsQuantity} reviews`}
-            </span>
+            </a>
           </div>
           <div>
             <span className="uppercase text-slate-500">Brand:</span>
             <span className="capitalize">{product?.brand}</span>
           </div>
+          {/* // TODO Price */}
           <h1 className="text-2xl lg:text-3xl">${'171.00'}</h1>
           <h3>
             Hurry! Only{' '}
             <span className="text-red-600">{product?.variants.length}</span>{' '}
             left in Stock!
           </h3>
-          <progress className="progress w-full" value={70} max={100}></progress>
+          <progress
+            className="progress w-full"
+            value={product?.variants?.length! * 10}
+            max={100}
+          ></progress>
           <hr className="my-4" />
           <div>
             <h1 className="uppercase font-thin mb-3">colors:{color}</h1>
@@ -83,7 +88,7 @@ export default function ProductDetails() {
               onChangeColorStateHandler={setColor}
               currentColorState={color}
               circleSize={25}
-              className="px-2 py-1 gap-6"
+              className="px-2 py-1 gap-3"
             />
           </div>
           <div>
@@ -100,8 +105,12 @@ export default function ProductDetails() {
           </div>
         </div>
       </div>
+      <hr />
       <div className="my-6">
-        <h1 className="text-xl font-semibold capitalize text-center md:text-start">
+        <h1
+          id="reviews"
+          className="text-xl font-semibold capitalize text-center md:text-start"
+        >
           customer reviews
         </h1>
         <Reviews productId={id as string} />
