@@ -69,7 +69,7 @@ export default function ProductDetails() {
             <span className="capitalize">{product?.brand}</span>
           </div>
           {/* // TODO Price */}
-          <h1 className="text-2xl lg:text-3xl">${'171.00'}</h1>
+          <h1 className="text-2xl lg:text-3xl">${size?.price}</h1>
           <h3>
             Hurry! Only{' '}
             <span className="text-red-600">{product?.variants.length}</span>{' '}
