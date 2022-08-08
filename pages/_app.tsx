@@ -1,18 +1,18 @@
+import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 import type { AppProps } from 'next/app';
-import Footer from '../components/Layout/Footer';
-import Navbar from '../components/Layout/Navbar';
+import Layout from '../components/Layout/Layout';
+import muiTheme from '../config/muiTheme';
 import { wrapper } from '../lib/store';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Navbar />
-      <div className="container pt-24 pb-8">
-        <Component {...pageProps} />
-      </div>
-      <Footer />
-    </>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={muiTheme}>
+        {/* @ts-ignore  */}
+        <Layout Component={Component} pageProps={pageProps} />
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }
 
