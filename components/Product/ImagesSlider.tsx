@@ -6,6 +6,7 @@ export default function ImagesSlider({ images = [] }: { images: string[] }) {
   const [zoomStyle, setZoomStyle] = useState({
     backgroundImage: 'none',
     backgroundPosition: '0% 0%',
+    backgroundSize: '175% 175%',
   });
 
   useEffect(() => {
@@ -31,10 +32,11 @@ export default function ImagesSlider({ images = [] }: { images: string[] }) {
   };
 
   const handleMouseLeave: MouseEventHandler = () => {
-    setZoomStyle({
+    setZoomStyle((prev) => ({
+      ...prev,
       backgroundImage: 'none',
       backgroundPosition: '0% 0%',
-    });
+    }));
   };
 
   return (
