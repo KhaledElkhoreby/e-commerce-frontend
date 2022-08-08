@@ -15,16 +15,18 @@ import { wrapper } from '../../lib/store';
 
 export default function ProductDetails() {
   const router = useRouter();
+  console.log(router.query);
   const id = router.query.id;
 
-  const { isLoading, error, data } = useGetProductByIdQuery(
-    typeof id === 'string' ? id : skipToken,
-    {
-      skip: router.isFallback,
-    }
-  );
-
-  const product = data;
+  const {
+    isLoading,
+    error,
+    isError,
+    data: product,
+    isSuccess,
+  } = useGetProductByIdQuery(typeof id === 'string' ? id : skipToken, {
+    skip: router.isFallback,
+  });
 
   const [variant, setVariant] = useState(product?.variants[0]);
   const [size, setSize] = useState(variant?.sizes[0]);
@@ -43,79 +45,84 @@ export default function ProductDetails() {
     setSize(variant?.sizes[0]);
   }, [color, product?.variants]);
 
+  if (isError) return <div>There is an error</div>;
+  if (isLoading) return <div>Loading...</div>;
+
   return (
-    <div className="container">
-      <div className="capitalize text-center py-4 text-xs md:text-sm xl:text-start">
-        home / {product?.category} / {product?.brand}
-      </div>
-      <div className="flex flex-wrap justify-between gap-6 shadow-xl">
-        <div className="flex-grow min-h-[600px] w-full lg:w-[50%] md:basis-[calc(50%-1.5rem)] ">
-          {variant && <ImagesSlider images={variant?.images!} />}
+    isSuccess && (
+      <div className="container">
+        <div className="capitalize text-center py-4 text-xs md:text-sm xl:text-start">
+          home / {product?.category} / {product?.brand}
         </div>
-        <div className=" flex-grow w-full md:basis-[calc(50%-1.5rem)] flex flex-col text-center lg:text-start gap-y-4 p-4">
-          <div className="flex gap-x-2 justify-center capitalize text-sm lg:justify-start">
-            <span className="badge-error text-white px-2">{'hot'}</span>
-            <span className="badge-info text-white px-2">{'in stock'}</span>
+        <div className="flex flex-wrap justify-between gap-6 shadow-xl">
+          <div className="flex-grow min-h-[600px] w-full lg:w-[50%] md:basis-[calc(50%-1.5rem)] ">
+            {variant && <ImagesSlider images={variant?.images!} />}
           </div>
-          <h1 className="text-xl lg:text-2xl">{product?.title}</h1>
-          <div className="border-black flex justify-center lg:justify-start gap-x-2">
-            <RateStars size={25} readOnly />
-            <a className="uppercase link" href="#reviews">
-              {`${product?.ratingsQuantity} reviews`}
-            </a>
-          </div>
-          <div>
-            <span className="uppercase text-slate-500">Brand:</span>
-            <span className="capitalize">{product?.brand}</span>
-          </div>
-          {/* // TODO Price */}
-          <h1 className="text-2xl lg:text-3xl">${size?.price}</h1>
-          <h3>
-            Hurry! Only{' '}
-            <span className="text-red-600">{product?.variants.length}</span>{' '}
-            left in Stock!
-          </h3>
-          <progress
-            className="progress w-full"
-            value={product?.variants?.length! * 10}
-            max={100}
-          ></progress>
-          <hr className="my-4" />
-          <div>
-            <h1 className="uppercase font-thin mb-3">colors:{color}</h1>
-            <SwitchColors
-              colors={colors}
-              onChangeColorStateHandler={setColor}
-              currentColorState={color}
-              circleSize={25}
-              className="px-2 py-1 gap-3"
-            />
-          </div>
-          <div>
-            <h1 className="uppercase font-thin mb-3">sizes:{size?.size}</h1>
-            {variant && (
-              <SwitchSizes
-                sizes={variant?.sizes}
-                onChangeSizeStateHandler={setSize}
-                currentSizeState={size}
-                boxSize={10}
-                className="py-2 px-1 gap-x-3"
+          <div className=" flex-grow w-full md:basis-[calc(50%-1.5rem)] flex flex-col text-center lg:text-start gap-y-4 p-4">
+            <div className="flex gap-x-2 justify-center capitalize text-sm lg:justify-start">
+              <span className="badge-error text-white px-2">{'hot'}</span>
+              <span className="badge-info text-white px-2">{'in stock'}</span>
+            </div>
+            <h1 className="text-xl lg:text-2xl">{product?.title}</h1>
+            <div className="border-black flex justify-center lg:justify-start gap-x-2">
+              <RateStars size={25} readOnly />
+              <a className="uppercase link" href="#reviews">
+                {`${product?.ratingsQuantity} reviews`}
+              </a>
+            </div>
+            <div>
+              <span className="uppercase text-slate-500">Brand:</span>
+              <span className="capitalize">{product?.brand}</span>
+            </div>
+            {/* // TODO Price */}
+            <h1 className="text-2xl lg:text-3xl">${size?.price}</h1>
+            <h3>
+              Hurry! Only{' '}
+              <span className="text-red-600">{product?.variants.length}</span>{' '}
+              left in Stock!
+            </h3>
+            <progress
+              className="progress w-full"
+              value={product?.variants?.length! * 10}
+              max={100}
+            ></progress>
+            <hr className="my-4" />
+            <div>
+              <h1 className="uppercase font-thin mb-3">colors:{color}</h1>
+              <SwitchColors
+                colors={colors}
+                onChangeColorStateHandler={setColor}
+                currentColorState={color}
+                circleSize={25}
+                className="px-2 py-1 gap-3"
               />
-            )}
+            </div>
+            <div>
+              <h1 className="uppercase font-thin mb-3">sizes:{size?.size}</h1>
+              {variant && (
+                <SwitchSizes
+                  sizes={variant?.sizes}
+                  onChangeSizeStateHandler={setSize}
+                  currentSizeState={size}
+                  boxSize={10}
+                  className="py-2 px-1 gap-x-3"
+                />
+              )}
+            </div>
           </div>
         </div>
+        <hr />
+        <div className="my-6">
+          <h1
+            id="reviews"
+            className="text-xl font-semibold capitalize text-center md:text-start"
+          >
+            customer reviews
+          </h1>
+          <Reviews productId={id as string} />
+        </div>
       </div>
-      <hr />
-      <div className="my-6">
-        <h1
-          id="reviews"
-          className="text-xl font-semibold capitalize text-center md:text-start"
-        >
-          customer reviews
-        </h1>
-        <Reviews productId={id as string} />
-      </div>
-    </div>
+    )
   );
 }
 

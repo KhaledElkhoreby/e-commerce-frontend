@@ -24,10 +24,10 @@ export default function Reviews({ productId }: { productId: string }) {
           <div className="avatar placeholder gap-x-2 justify-center md:justify-start">
             <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
               <span className="text-xs capitalize">
-                {review.user.name.substring(0, 2)}
+                {review?.user?.name.substring(0, 2)}
               </span>
             </div>
-            <h4 className="capitalize text-lg">{review.user.name}</h4>
+            <h4 className="capitalize text-lg">{review.user?.name}</h4>
           </div>
           <p className="text-slate-600 leading-5 font-normal   text-center md:text-start">
             {review.review}

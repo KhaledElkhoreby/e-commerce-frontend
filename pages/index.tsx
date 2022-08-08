@@ -1,15 +1,26 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import ProductList from '../components/Product/ProductList';
+import { useGetProductListQuery } from '../lib/services/productsApi';
 
 const Home: NextPage = () => {
+  const {
+    data: products,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useGetProductListQuery(null);
+
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>My App</title>
         <meta name="description" content="Vastra" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="text-black text-4xl">Khaled</h1>
+      {isLoading && <div>Loading...</div>}
+      {isError && <div>There is an error</div>}
+      {isSuccess && <ProductList products={products} />}
     </>
   );
 };

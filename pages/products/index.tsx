@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import ProductList from '../../components/Product/ProductList';
 import {
   getProductList,
   getRunningOperationPromises,
@@ -9,23 +10,23 @@ import { wrapper } from '../../lib/store';
 export default function Products() {
   const router = useRouter();
 
-  const { isLoading, error, data } = useGetProductListQuery(null, {
+  const {
+    data: productList,
+    isLoading,
+    isError,
+    isSuccess,
+    error,
+  } = useGetProductListQuery(null, {
     skip: router.isFallback,
   });
 
-  const productList = data?.data;
+  if (isError) console.log(error);
 
   return (
     <>
-      {error && !isLoading && <div>There is error</div>}
+      {isError && <div>There is error</div>}
       {isLoading && <div>Loading....</div>}
-      {productList && (
-        <div>
-          {productList?.map((el) => (
-            <div key={el._id}>{el.slug}</div>
-          ))}
-        </div>
-      )}
+      {isSuccess && <ProductList products={productList} />}
     </>
   );
 }
