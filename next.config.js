@@ -3,12 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: [
-      'localhost',
-      'still-forest-48921.herokuapp.com',
-      ,
-      'placeimg.com',
-    ],
+    domains: ['localhost', 'my-vastra.herokuapp.com', , 'placeimg.com'],
   },
 };
 

@@ -13,6 +13,7 @@ import {
 export const productsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.NEXT_PUBLIC_SERVER_HOST}api/v1/products`,
+    // baseUrl: `http://localhost:5000/api/v1/products`,
   }),
   refetchOnFocus: true,
   refetchOnReconnect: true,
